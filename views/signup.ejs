@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans bg-gray-100 text-black">
+    <header class="sticky top-0">
+        <nav class="flex items-center justify-between flex-shrink-0 bg-green-600 p-8 text-white">
+            <div class="flex">
+                <a href="#" class="text-4xl font-bold mr-10 hover:text-black">
+                    TrailBenilde <i class="fa-solid fa-star invisible sm:visible"></i>
+                </a>
+            </div>
+            <div class="flex justify-evenly">
+                <a href="#" class="text-lg font-bold mr-8 hover:text-black">Developer</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="flex justify-center">
+            <div class="mx-10 my-11 bg-white p-12 text-black justify-center rounded-lg">
+                <div class="">
+                    <h1 class="text-2xl font-bold pb-10 text-center">Create an account</h1>
+                </div>
+                <div>
+                    <form action="/signup" class="flex-col" method="post">
+                        <label class="block font-bold text-md pb-3">ID Number</label>
+                        <input id="idNumber" name="idNumber" type="text" class="mb-4 shadow bg-gray-200 p-2 rounded w-96 px-2 border-4" placeholder="Must be ID Number(122*****)" minlength="8" maxlength="8" required>
+
+                        <label class="block font-bold text-md pb-3">First Name</label>
+                        <input id="firstName" name="firstName" type="text" class="mb-4 shadow bg-gray-200 p-2 rounded w-96 px-2 border-4" placeholder="Enter your first name" required>
+
+                        <label class="block font-bold text-md pb-3">Last Name</label>
+                        <input  name="lastName" type="text" class="mb-4 shadow bg-gray-200 p-2 rounded w-96 px-2 border-4" placeholder="Enter your last name" required>
+
+                        <label class="block font-bold text-md pb-3">Course Code</label>
+                        <div class="relative mb-4 ">
+                            <select id="course" name="course" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 p-2 rounded leading-tight focus:outline-none focus:bg-white" id="">
+                              <option>IS</option>
+                              <option>CA</option>
+                              <option>IEMC</option>
+                              <option>BM</option>
+                              <option>EGBM</option>
+                              <option>HRM</option>
+                              <option>MM</option>
+                              <option>CSEC</option>
+                              <option>REM</option>
+                              <option>SIE</option>
+                              <option>N/A</option>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                              <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                            </div>
+                        </div>
+                        
+                        <label class="block font-bold text-md pb-3">Email Address</label>
+                        <input id="emailAddress" name="emailAddress" type="text" class="mb-4 shadow border bg-gray-200 p-2 rounded w-96 px-2" placeholder="Must be email (juan.delacruz@benilde.edu.ph)" required>
+
+                        <label class="block font-bold text-md pb-3">Password</label>
+                        <input id="password" name="password" type="string" class="block mb-4 appearance-none shadow border bg-gray-200 p-2 rounded w-96 px-2" placeholder="Enter your password" required>
+                        
+                        <div class="flex justify-center">
+                            <a href="login" type="button" class="bg-blue-600 text-white font-bold p-3 px-5 rounded-3xl mx-3 my-5 hover:bg-white hover:text-black hover:border-2 hover:border-black">Back</a>
+                            <button type="submit" class="bg-green-600 text-white font-bold p-3 px-5 rounded-3xl mx-3 my-5 hover:bg-white hover:text-black hover:border-2 hover:border-black">Let's Trail!</button>
+                        </div>
+                    </form>
+                </div>
+                <div id="errorContainer" class="text-red-600 font-bold"></div>
+            </div>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script>
+
+        function displayError(errorMessage) {
+          const errorContainer = document.getElementById('errorContainer');
+          errorContainer.textContent = errorMessage;
+        }
+
+        const errorFromServer = '<%= typeof error !== "undefined" && error !== null ? error : ""+ "idNumber and emailAddress must be unique" %>';
+      
+        if (errorFromServer) {
+          displayError(errorFromServer);
+        }
+      </script>
+</body>
+</html>
+

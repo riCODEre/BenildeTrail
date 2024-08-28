@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans bg-gray-100 text-black">
+    <header class="sticky top-0">
+        <nav class="flex items-center justify-between flex-shrink-0 bg-green-600 p-8 text-white">
+            <div class="flex">
+                <a href="#" class="text-4xl font-bold mr-10 hover:text-black">
+                    TrailBenilde <i class="fa-solid fa-star invisible sm:visible"></i>
+                </a>
+            </div>
+            <div class="flex justify-evenly">
+                <form action="/logout" method="post">
+                    <button type="submit" class="text-lg font-bold mr-8 hover:text-black">
+                        Logout
+                    </button>
+
+                </form>
+                
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="flex justify-center">
+            <div class="mx-10 my-11 bg-white p-12 text-black justify-center rounded-lg">
+                <div class="">
+                    <h1 class="text-2xl font-bold pb-10 text-center">Create Organization</h1>
+                </div>
+                <div>
+                    <form action="/newOrg" class="flex-col" method="post">
+                        <label class="block font-bold text-md pb-3">Name</label>
+                        <input id="name" name="name" type="text" class="shadow bg-gray-200 p-2 rounded w-96 px-2" placeholder="Enter your org name" required>
+
+                        <label class="block font-bold text-md pb-3 mt-6">AKA</label>
+                        <input id="aka" name="aka" type="text" class="shadow bg-gray-200 p-2 rounded w-96 px-2 border-4 " placeholder="Enter your org nickname" required>
+                        
+                        <label class="block font-bold text-md pb-3 mt-6">Description</label>
+                        <textarea id="description" name="description" type="text" class="shadow bg-gray-200 p-2 rounded w-96 px-2 border-4 " placeholder="Enter your org description" required></textarea>
+
+                        <button type="submit" class="block bg-green-600 text-white font-bold p-3 rounded-3xl my-5 mx-auto hover:bg-white hover:text-black hover:border-2 hover:border-black">
+                            <i class="fa-solid fa-plus"></i> Add
+                        </button>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>

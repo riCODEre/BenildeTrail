@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans bg-gray-100 text-black">
+    <header class="sticky top-0">
+        <nav class="flex items-center justify-between flex-shrink-0 bg-green-600 p-8 text-white">
+            <div class="flex">
+                <a href="/dashboard" class="text-4xl font-bold mr-10 hover:text-black">
+                    TrailBenilde <i class="fa-solid fa-star invisible sm:visible"></i>
+                </a>
+            </div>
+            <div class="flex justify-evenly">
+                <a href="/dashboard" class="text-lg font-bold mr-8 hover:text-black">Dashboard</a>
+                <a href="/myOrg" class="text-lg font-bold mr-8 hover:text-black">My Organizations</a>
+                <form action="/logout" method="post">
+                    <button type="submit" class="text-lg font-bold mr-8 hover:text-black">
+                        Logout
+                    </button>
+
+                </form>
+                
+            </div>
+        </nav>
+    </header>
+    <main class="m-5">
+        <div class="flex justify-center m-4 text-4xl font-bold">
+            Available Organizations
+        </div>
+        <div class="grid grid-cols-3">
+            <% for (let org of orgs) { %>
+                <div>
+                    <div class="p-2 py-3 m-2 bg-white rounded-lg ">
+                        <h1 class="break-words text-xl font-bold"><%= org.name %></h1>
+                        <h2 class="text-md italic"><%= org.aka %></h2>
+                        <p class="break-words text-justify"><%= org.description%></p>
+                        <div class="flex justify-end m-2 p-2 place-self-end">
+                            <form action="/joinOrg" method="post" class="flex text-white sm:text-sm font-bold p-2 rounded-lg bg-green-600 ml-2 ">
+                                <input type="number" class="hidden" id="idOrg" name="idOrg" value="<%= org.id %>">
+                                <button onclick="showReg()" type="submit">Join</button>
+                            </form>                        
+                        </div>
+                    </div>
+                    
+                </div>
+            <% } %>
+        </div>
+        
+    </main>
+    <footer>
+
+    </footer>
+    <script>
+        function showReg() {
+          alert('Joined in!'); // This will display a simple alert window
+        }
+      </script>
+</body>
+</html>

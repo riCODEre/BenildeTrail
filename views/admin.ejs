@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans bg-gray-100 text-black">
+    <header class="sticky top-0">
+        <nav class="flex items-center justify-between flex-shrink-0 bg-green-600 p-8 text-white">
+            <div class="flex">
+                <a href="/dashboard" class="text-4xl font-bold mr-10 hover:text-black">
+                    TrailBenilde <i class="fa-solid fa-star invisible sm:visible"></i>
+                </a>
+            </div>
+            <div class="flex justify-evenly">
+                <form action="/logout" method="post">
+                    <button type="submit" class="text-lg font-bold mr-8 hover:text-black">
+                        Logout
+                    </button>
+
+                </form>
+                
+            </div>
+        </nav>
+    </header>
+    <main class="m-5">
+        <div class="flex justify-center m-4 text-4xl font-bold">
+            Created Organizations
+        </div>
+        <div class="grid grid-cols-3">
+            <% for (let org of orgs) { %>
+                <div>
+                    <div class="p-2 py-3 m-2 bg-white rounded-lg ">
+                        <h1 class="break-words text-xl font-bold"><%= org.name %></h1>
+                        <h2 class="text-md italic"><%= org.aka %></h2>
+                        <p class="break-words text-justify"><%= org.description%></p>
+                        
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </main>
+    <main>
+        <div class="flex justify-center m-4 text-4xl font-bold">
+            Registered Students
+        </div>
+        <div class="flex justify-center">
+            <table class="m-5 text-center">
+                <thead class="bg-gray-300">
+                    <tr class="table-auto border-solid border-2 border-black">
+                        <th>id</th>
+                        <th>idNumber</th>
+                        <th>firstName</th>
+                        <th>lastName</th>
+                        <th>course</th>
+                        <th>emailAddress</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white">
+                    <% for (let students of accounts) { %>
+                    <tr class="table-auto border-solid border-2 border-black">
+                        <td class="p-3"><%= students.id %></td>
+                        <td class="p-3"><%= students.idNumber %></td>
+                        <td class="p-3"><%= students.firstName %></td>
+                        <td class="p-3"><%= students.lastName %></td>
+                        <td class="p-3"><%= students.course %></td>
+                        <td class="p-3"><%= students.emailAddress %></td>
+                    </tr>                            
+                        <% } %>
+                </tbody>
+            </table>
+        </div>
+        
+    </main>
+    <footer>
+        <div class="fixed flex justify-end inset-0 items-end m-20">
+            <button type="button" class="rounded-full bg-green-600 text-white p-4 text-3xl tracking-wide">
+                <a href="/newOrg">
+                    <i class="fa-solid fa-plus"> New</i>
+                </a>
+            </button>
+        </div> 
+        
+        
+    </footer>
+</body>
+</html>
