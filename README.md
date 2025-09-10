@@ -80,7 +80,7 @@ BenildeTrail/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/BenildeTrail.git
+   git clone https://github.com/ricCODEre/BenildeTrail.git
    ```
 
 2. Install dependencies:
